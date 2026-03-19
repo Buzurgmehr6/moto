@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BS Motorcycles</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+    a { text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 11, 11, 0.95);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .logo span { color: #d4af37; }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 13px;
+      transition: 0.25s ease;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    .hero {
+      padding: 64px 0 40px;
+      background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: 1.05;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      color: #cfcfcf;
+      font-size: 18px;
+      max-width: 700px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 12px;
+      color: #d7d7d7;
+      font-size: 15px;
+    }
+
+    section { padding: 56px 0; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: clamp(24px, 3vw, 38px);
+    }
+
+    .section-head p {
+      color: #bdbdbd;
+      max-width: 680px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .search-box, .select-box {
+      background: #151515;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 14px;
+      border-radius: 12px;
+      min-height: 46px;
+    }
+
+    .search-box {
+      width: min(380px, 100%);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      transition: 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212,175,55,0.35);
+    }
+
+    .card-image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #0f0f0f;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .badge {
+      width: fit-content;
+      background: rgba(212,175,55,0.12);
+      color: #f0cf67;
+      border: 1px solid rgba(212,175,55,0.2);
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      color: #d1d1d1;
+      font-size: 11px;
+    }
+
+    .meta div {
+      background: #101010;
+      padding: 7px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.06);
+      line-height: 1.25;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .card-buttons {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .info-boxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-box {
+      background: #141414;
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .info-box p {
+      color: #c8c8c8;
+      font-size: 15px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #181818 0%, #101010 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 34px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cta h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 8px;
+    }
+
+    .cta p {
+      color: #d0d0d0;
+      max-width: 700px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 22px 0 32px;
+      color: #a8a8a8;
+      font-size: 14px;
+    }
+
+    .empty {
+      display: none;
+      padding: 18px;
+      background: #141414;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #c9c9c9;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .hero-wrap { grid-template-columns: 1fr; }
+      .info-boxes { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .info-boxes { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .meta { grid-template-columns: 1fr 1fr; font-size: 10px; }
+      .hero { padding-top: 36px; }
+      .card-image { aspect-ratio: 4 / 3; }
+      .card-body { padding: 10px; gap: 7px; }
+      .card-title { font-size: 14px; }
+      .price { font-size: 16px; }
+      .badge { font-size: 9px; padding: 4px 7px; }
+      .btn { padding: 8px 10px; font-size: 12px; }
+    }
+
+    @media (max-width: 520px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .hero p { font-size: 16px; }
+      .section-head { align-items: flex-start; }
+      .cta { padding: 24px; }
+      .card-body { padding: 8px; }
+      .card-title { font-size: 13px; }
+      .price { font-size: 15px; }
+      .meta { gap: 5px; font-size: 9px; }
+      .meta div { padding: 6px; }
+      .btn { padding: 7px 8px; font-size: 11px; border-radius: 8px; }
+    }
+      .hero p { font-size: 16px; }
+      .section-head { align-items: flex-start; }
+      .cta { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="logo">BS <span>Motorcycles</span></a>
+      <nav class="nav-links">
+        <a href="#catalog">Каталог</a>
+        <a href="#how">Как выбрать</a>
+        <a href="#why">Почему мы</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <a class="btn btn-primary" href="https://wa.me/992000000000?text=Здравствуйте!%20Хочу%20подобрать%20мотоцикл%20на%20сайте%20KAYON%20Moto">WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-wrap">
+        <div>
+          <h1>Мотоциклы, которые клиент выбирает прямо на сайте</h1>
+         
+          <div class="hero-actions">
+            <a href="#catalog" class="btn btn-primary">Смотреть мотоциклы</a>
+            <a href="#how" class="btn btn-secondary">Как это работает</a>
+          </div>
+        </div>
+
+        
+    </section>
+
+    <section id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Каталог мотоциклов</h2>
+            <p>Выберите класс, найдите нужную модель и сразу откройте диалог в WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" class="search-box" type="text" placeholder="Поиск по названию модели..." />
+          <select id="categoryFilter" class="select-box">
+            <option value="all">Все категории</option>
+            <option value="Эндуро">Эндуро</option>
+            <option value="Кросс">Кросс</option>
+            <option value="Дорожный">Дорожный</option>
+            <option value="Турист">Турист</option>
+          </select>
+        </div>
+
+        <div id="productGrid" class="grid"></div>
+        <div id="emptyState" class="empty">По вашему запросу мотоциклы не найдены.</div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Как клиент выбирает</h2>
+            <p>Простой процесс без корзины, без регистрации и без продавцов.</p>
+          </div>
+        </div>
+
+        <div class="info-boxes">
+          <div class="info-box">
+            <h3>Просмотр моделей</h3>
+            <p>Клиент открывает сайт и видит все доступные мотоциклы с фото, ценой и характеристиками.</p>
+          </div>
+          <div class="info-box">
+            <h3>Выбор подходящего варианта</h3>
+            <p>Он сравнивает модели по объёму двигателя, типу охлаждения, классу и цене.</p>
+          </div>
+          <div class="info-box">
+            <h3>Переход в WhatsApp</h3>
+            <p>Нажимает кнопку и попадает сразу к вам в WhatsApp уже с сообщением по выбранной модели.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Почему такой сайт удобен</h2>
+            <p>Вы полностью контролируете ассортимент, цены и общение с клиентом.</p>
+          </div>
+        </div>
+
+        <div class="info-boxes">
+          <div class="info-box">
+            <h3>Без продавцов</h3>
+            <p>Никакой отдельной панели продавца. Только вы добавляете и меняете модели.</p>
+          </div>
+          <div class="info-box">
+            <h3>Быстрая заявка</h3>
+            <p>Клиенту не нужно проходить регистрацию. Один клик — и он уже пишет вам.</p>
+          </div>
+          <div class="info-box">
+            <h3>Премиальная подача</h3>
+            <p>Можно красиво показать каждую модель, чтобы клиенту было легче принять решение.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Нужна помощь с выбором мотоцикла?</h2>
+            <p>Откройте WhatsApp и получите консультацию, цену, наличие и сроки доставки по нужной модели.</p>
+          </div>
+          <a class="btn btn-primary" href="https://wa.me/992000000000?text=Здравствуйте!%20Хочу%20получить%20консультацию%20по%20мотоциклам%20KAYON%20Moto">Написать в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 BS Motorcycles. Все права защищены.
+    </div>
+  </footer>
+
+  <script>
+    const whatsappNumber = "992037343131";
+
+    const motorcycles = [
+      {
+        id: 1,
+        name: "KAYO T2 250",
+        category: "Эндуро",
+        engine: "250 cc",
+        cooling: "Воздушное",
+        transmission: "5 передач",
+        price: "$2,350",
+        image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        id: 2,
+        name: "KAYO K6 300",
+        category: "Кросс",
+        engine: "300 cc",
+        cooling: "Жидкостное",
+        transmission: "6 передач",
+        price: "$3,200",
+        image: "https://images.unsplash.com/photo-1517846693594-1567da72af75?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        id: 3,
+        name: "Zuumav NB300",
+        category: "Турист",
+        engine: "300 cc",
+        cooling: "Жидкостное",
+        transmission: "6 передач",
+        price: "$3,450",
+        image: "https://images.unsplash.com/photo-1529429611270-0765fdbd3433?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        id: 4,
+        name: "KEWS K23",
+        category: "Дорожный",
+        engine: "250 cc",
+        cooling: "Воздушное",
+        transmission: "5 передач",
+        price: "$2,150",
+        image: "https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        id: 5,
+        name: "KAYO T4 300",
+        category: "Эндуро",
+        engine: "300 cc",
+        cooling: "Жидкостное",
+        transmission: "6 передач",
+        price: "$3,050",
+        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        id: 6,
+        name: "KEWS STN 300",
+        category: "Кросс",
+        engine: "300 cc",
+        cooling: "Жидкостное",
+        transmission: "6 передач",
+        price: "$3,380",
+        image: "https://images.unsplash.com/photo-1549399542-7e82138f2f9d?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const emptyState = document.getElementById("emptyState");
+
+    function buildWhatsAppLink(productName) {
+      const text = `Здравствуйте! Меня интересует модель ${productName}. Отправьте, пожалуйста, цену, наличие и условия заказа.`;
+      return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    }
+
+    function renderProducts(items) {
+      productGrid.innerHTML = "";
+
+      if (!items.length) {
+        emptyState.style.display = "block";
+        return;
+      }
+
+      emptyState.style.display = "none";
+
+      items.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        card.innerHTML = `
+          <div class="card-image">
+            <img src="${item.image}" alt="${item.name}" />
+          </div>
+          <div class="card-body">
+            <span class="badge">${item.category}</span>
+            <h3 class="card-title">${item.name}</h3>
+            <div class="meta">
+              <div><strong>Двигатель:</strong><br>${item.engine}</div>
+              <div><strong>Охлаждение:</strong><br>${item.cooling}</div>
+              <div><strong>КПП:</strong><br>${item.transmission}</div>
+              <div><strong>Цена:</strong><br>${item.price}</div>
+            </div>
+            <div class="price">${item.price}</div>
+            <div class="card-buttons">
+              <a class="btn btn-primary" target="_blank" href="${buildWhatsAppLink(item.name)}">Выбрать в WhatsApp</a>
+              <a class="btn btn-secondary" target="_blank" href="${buildWhatsAppLink(item.name)}">Узнать наличие</a>
+            </div>
+          </div>
+        `;
+
+        productGrid.appendChild(card);
+      });
+    }
+
+    function filterProducts() {
+      const query = searchInput.value.toLowerCase().trim();
+      const category = categoryFilter.value;
+
+      const filtered = motorcycles.filter((item) => {
+        const matchesSearch = item.name.toLowerCase().includes(query);
+        const matchesCategory = category === "all" || item.category === category;
+        return matchesSearch && matchesCategory;
+      });
+
+      renderProducts(filtered);
+    }
+
+    searchInput.addEventListener("input", filterProducts);
+    categoryFilter.addEventListener("change", filterProducts);
+
+    renderProducts(motorcycles);
+  </script>
+</body>
+</html>
