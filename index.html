@@ -370,7 +370,7 @@
       <a href="#home" class="logo">BS <span>Motorcycles</span></a>
       <nav class="nav-links">
         <a href="#catalog">Каталог</a>
-        <a href="#how">Как выбрать</a>
+        
         <a href="#why">Почему мы</a>
         <a href="#contact">Контакты</a>
       </nav>
@@ -406,10 +406,17 @@
           <input id="searchInput" class="search-box" type="text" placeholder="Поиск по названию модели..." />
           <select id="categoryFilter" class="select-box">
             <option value="all">Все категории</option>
-            <option value="Эндуро">Эндуро</option>
-            <option value="Кросс">Кросс</option>
-            <option value="Дорожный">Дорожный</option>
-            <option value="Турист">Горный</option>
+            <option value="KEWS">KEWS</option>
+            <option value="KAYO">KAYO</option>
+            <option value="STN">STN</option>
+            <option value="ZUUMAV">ZUUMAV</option>
+            <option value="XGZ">XGZ</option>
+            <option value="HENGJIAN">HENGJIAN</option>
+            <option value="N911">N911</option>
+            <option value="BSE">BSE</option>
+            <option value="BOSUER">BOSUER</option>
+            
+
           </select>
         </div>
 
@@ -417,39 +424,12 @@
         <div id="emptyState" class="empty">По вашему запросу мотоциклы не найдены.</div>
       </div>
     </section>
-
-    <section id="how">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Как клиент выбирает</h2>
-            <p>Простой процесс без корзины, без регистрации и без продавцов.</p>
-          </div>
-        </div>
-
-        <div class="info-boxes">
-          <div class="info-box">
-            <h3>Просмотр моделей</h3>
-            <p>Клиент открывает сайт и видит все доступные мотоциклы с фото, ценой и характеристиками.</p>
-          </div>
-          <div class="info-box">
-            <h3>Выбор подходящего варианта</h3>
-            <p>Он сравнивает модели по объёму двигателя, типу охлаждения, классу и цене.</p>
-          </div>
-          <div class="info-box">
-            <h3>Переход в WhatsApp</h3>
-            <p>Нажимает кнопку и попадает сразу к вам в WhatsApp уже с сообщением по выбранной модели.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="why">
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Почему такой сайт удобен</h2>
-            <p>Вы полностью контролируете ассортимент, цены и общение с клиентом.</p>
+            <h2>Почему мы</h2>
+            <p>Надёжные поставки мотоциклов напрямую из Китая. Без посредников, с польной </p>
           </div>
         </div>
 
@@ -498,103 +478,555 @@
     const motorcycles = [
       {
         id: 1,
-        name: "KAYO T2 250",
-        category: "Эндуро",
+        name: "K16 CB250-F",
+        category: "KEWS",
         engine: "250 cc",
         cooling: "Воздушное",
         transmission: "5 передач",
         price: "$2,350",
-        image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80"
+        image: "images/kews/k16-cb250-f.png"
       },
       {
         id: 2,
-        name: "KAYO K6 300",
-        category: "Кросс",
-        engine: "300 cc",
-        cooling: "Жидкостное",
-        transmission: "6 передач",
+        name: "K16 CB250-R",
+        category: "KEWS",
+        engine: "250 cc",
+        cooling: "Воздушное",
+        transmission: "5 передач",
         price: "$3,200",
-        image: "https://images.unsplash.com/photo-1517846693594-1567da72af75?auto=format&fit=crop&w=900&q=80"
-      },
+        image: "images/kews/k16-cb250-r.png"
+     },
       {
         id: 3,
-        name: "Zuumav NB300",
-        category: "Турист",
-        engine: "300 cc",
+        name: "K16 MT250",
+        category: "KEWS",
+        engine: "250 cc",
         cooling: "Жидкостное",
-        transmission: "6 передач",
+        transmission: "5 передач",
         price: "$3,450",
-        image: "https://images.unsplash.com/photo-1529429611270-0765fdbd3433?auto=format&fit=crop&w=900&q=80"
+        image: "images/kews/k16-mt250.png"
       },
       {
         id: 4,
-        name: "KEWS K16 NB300",
-        category: "Горный",
+        name: "K16 NB300",
+        category: "KEWS",
         engine: "279 cc",
         cooling: "Водяное",
         transmission: "6 передач",
         price: "$2,150",
-        image: "images/kewsk16nb300.png"
+        image: "images/kews/k16-nb300.png"
       },
       {
         id: 5,
-        name: "KAYO T4 300",
-        category: "Эндуро",
-        engine: "300 cc",
+        name: "K16 NC250",
+        category: "KEWS",
+        engine: "250 cc",
         cooling: "Жидкостное",
         transmission: "6 передач",
         price: "$3,050",
-        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80"
+        image: "images/kews/k16-nc250.png"
       },
       {
         id: 6,
-        name: "KEWS STN 300",
-        category: "Кросс",
-        engine: "300 cc",
+        name: "K16 NC300S",
+        category: "KEWS",
+        engine: "283 cc",
         cooling: "Жидкостное",
         transmission: "6 передач",
         price: "$3,380",
-        image: "https://images.unsplash.com/photo-1549399542-7e82138f2f9d?auto=format&fit=crop&w=900&q=80"
+        image: "images/kews/k16-nc300s.png"
       },
       {
         id: 7,
-        name: "KEWS K16 NB300",
-        category: "Горный",
-        engine: "279 cc",
+        name: "K16 NC450",
+        category: "KEWS",
+        engine: "449 cc",
         cooling: "Водяное",
         transmission: "6 передач",
         price: "$2,150",
-        image: ""
+        image: "images/kews/k16-nc450.png"
       },
       {
         id: 8,
-        name: "KEWS K16 NB300",
-        category: "Горный",
-        engine: "279 cc",
+        name: "K20 NC250",
+        category: "KEWS",
+        engine: "250 cc",
         cooling: "Водяное",
         transmission: "6 передач",
         price: "$2,150",
-        image: ""
+        image: "images/kews/k20-nc250.png"
       },
       {
         id: 9,
-        name: "KEWS K16 NB300",
-        category: "Горный",
+        name: "K20 PR300",
+        category: "KEWS",
         engine: "279 cc",
         cooling: "Водяное",
         transmission: "6 передач",
         price: "$2,150",
-        image: ""
+        image: "images/kews/k20-pr300.png"
       },
       {
         id: 10,
-        name: "KEWS K16 NB300",
-        category: "Горный",
+        name: "K23 MT250",
+        category: "KEWS",
+        engine: "250 cc",
+        cooling: "Водяное",
+        transmission: "6 передач",
+        price: "$2,150",
+        image: "images/kews/k23-mt250.png"},
+
+        {
+        id: 11,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 12,
+        name: "K16 NB300",
+        category: "KEWS",
         engine: "279 cc",
         cooling: "Водяное",
         transmission: "6 передач",
         price: "$2,150",
-        image: ""},
+        image: "images/kews/k16-nb300.png"
+      },
+      {
+        id: 13,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 14,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 15,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 16,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 17,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 18,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 19,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 20,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+      {
+        id: 4,
+        name: "",
+        category: "",
+        engine: "",
+        cooling: "",
+        transmission: " передач",
+        price: "$2,150",
+        image: "images/"
+      },
+
     ];
 
     const productGrid = document.getElementById("productGrid");
