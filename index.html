@@ -983,7 +983,14 @@
 
         card.innerHTML = `
           <div class="card-image">
-            <img src="${item.image}" alt="${item.name}" />
+            <img 
+              src="${item.image}" 
+              alt="${item.name}" 
+              loading="lazy" 
+              decoding="async"
+              width="300"
+              height="200"
+            />
           </div>
           <div class="card-body">
             <span class="badge">${item.category}</span>
