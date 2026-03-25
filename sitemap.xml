@@ -2,5 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bs-moto.com/</loc>
+<<<<<<< HEAD
+=======
+    <priority>1.0</priority>
+>>>>>>> 68d44000f08391ec749c3a3fba82409327d59349
   </url>
 </urlset>

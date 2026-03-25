@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+<<<<<<< HEAD
 Sitemap: https://bs-moto.com/sitemap.xml
+=======
+Sitemap: https://bs-moto.com/sitemap.xml
+>>>>>>> 68d44000f08391ec749c3a3fba82409327d59349
